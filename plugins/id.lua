@@ -11,12 +11,12 @@ function send_ID_by_reply(channel_id, message_id)
 end
 
 function getID_by_reply_cb(arg, msg)
-    send_msg(msg.chat_id_, "*User ID:* " .. msg.sender_user_id_ .. "\n*Chat ID:* " .. msg.chat_id_, "md")
+    send_msg(msg.chat_id_, "`ایدی کاربر:` " .. msg.sender_user_id_ .. "\n`شناسه گروه:` " .. msg.chat_id_, "md")
 end
 
 local function run(msg, matches)
     if not msg.reply_id then
-    	send_msg(msg.to.id, "*User ID:* " .. msg.from.id .. "\n*Chat ID:* " .. msg.to.id, "md")
+    	send_msg(msg.to.id, "`ایدی کاربر:` " .. msg.from.id .. "\n*`شناسه گروه:` " .. msg.to.id, "md")
     else
     	send_ID_by_reply(msg.to.id, msg.reply_id)
     end
@@ -24,7 +24,7 @@ end
 
 return {
   patterns = {
-    "^!id"
+    "^[!#/]id"
   },
   run = run
 }
