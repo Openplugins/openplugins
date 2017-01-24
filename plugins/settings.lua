@@ -282,19 +282,19 @@ local function run(msg, matches)
 			end
 
 			send_msg(msg.to.id, settings, 'md')
-		elseif matches[1] == "tgservices" then
-			if matches[2] == 'off' then
+		elseif matches[2] == "tgservices" then
+			if matches[1] == 'unlock' then
 				redis:set("settings:tgservices:" .. msg.to.id, true)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'noTgservicesT'), 'md')
-			elseif matches[2] == 'on' then
+			elseif matches[1] == 'lock' then
 				redis:del("settings:tgservices:" .. msg.to.id)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'tgservicesT'), 'md')
 			end
-		elseif matches[1] == "invite" then
-			if matches[2] == 'off' then
+		elseif matches[2] == "invite" then
+			if matches[1] == 'lock' then
 				redis:set("settings:invite:" .. msg.to.id, true)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'noInviteT'), 'md')
-			elseif matches[2] == 'on' then
+			elseif matches[1] == 'lock' then
 				redis:del("settings:invite:" .. msg.to.id)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'inviteT'), 'md')
 			end
@@ -306,134 +306,134 @@ local function run(msg, matches)
 				--redis:del("settings:icontitle:" .. msg.to.id)
 				--send_msg(msg.to.id, lang_text(msg.to.id, 'infoT'), 'md')
 			--end
-		elseif matches[1] == "photos" then
-			if matches[2] == 'off' then
+		elseif matches[2] == "photos" then
+			if matches[1] == 'lock' then
 				redis:set("settings:photos:" .. msg.to.id, true)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'noPhotosT'), 'md')
-			elseif matches[2] == 'on' then
+			elseif matches[1] == 'lock' then
 				redis:del("settings:photos:" .. msg.to.id)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'photosT'), 'md')
 			end
-		elseif matches[1] == "videos" then
-			if matches[2] == 'off' then
+		elseif matches[2] == "videos" then
+			if matches[1] == 'unlock' then
 				redis:set("settings:videos:" .. msg.to.id, true)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'noVideosT'), 'md')
-			elseif matches[2] == 'on' then
+			elseif matches[1] == 'lock' then
 				redis:del("settings:videos:" .. msg.to.id)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'videosT'), 'md')
 			end
-		elseif matches[1] == "stickers" then
-			if matches[2] == 'off' then
+		elseif matches[2] == "stickers" then
+			if matches[1] == 'lock' then
 				redis:set("settings:stickers:" .. msg.to.id, true)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'noStickersT'), 'md')
-			elseif matches[2] == 'on' then
+			elseif matches[1] == 'lock' then
 				redis:del("settings:stickers:" .. msg.to.id)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'stickersT'), 'md')
 			end
-		elseif matches[1] == "gifs" then
-			if matches[2] == 'off' then
+		elseif matches[2] == "gifs" then
+			if matches[1] == 'lock' then
 				redis:set("settings:gifs:" .. msg.to.id, true)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'noGifsT'), 'md')
-			elseif matches[2] == 'on' then
+			elseif matches[1] == 'lock' then
 				redis:del("settings:gifs:" .. msg.to.id)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'gifsT'), 'md')
 			end
-		elseif matches[1] == "voice" then
-			if matches[2] == 'off' then
+		elseif matches[2] == "voice" then
+			if matches[1] == 'unlock' then
 				redis:set("settings:voice:" .. msg.to.id, true)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'noVoiceT'), 'md')
-			elseif matches[2] == 'on' then
+			elseif matches[1] == 'lock' then
 				redis:del("settings:voice:" .. msg.to.id)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'voiceT'), 'md')
 			end
-		elseif matches[1] == "audios" then
-			if matches[2] == 'off' then
+		elseif matches[2] == "audios" then
+			if matches[1] == 'unlock' then
 				redis:set("settings:audios:" .. msg.to.id, true)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'noAudiosT'), 'md')
-			elseif matches[2] == 'on' then
+			elseif matches[1] == 'lock' then
 				redis:del("settings:audios:" .. msg.to.id)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'audiosT'), 'md')
 			end
-		elseif matches[1] == "documents" then
-			if matches[2] == 'off' then
+		elseif matches[2] == "documents" then
+			if matches[1] == 'unlock' then
 				redis:set("settings:documents:" .. msg.to.id, true)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'noDocumentsT'), 'md')
-			elseif matches[2] == 'on' then
+			elseif matches[1] == 'lock' then
 				redis:del("settings:documents:" .. msg.to.id)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'documentsT'), 'md')
 			end
-		elseif matches[1] == "location" then
-			if matches[2] == 'off' then
+		elseif matches[2] == "location" then
+			if matches[1] == 'unlock' then
 				redis:set("settings:location:" .. msg.to.id, true)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'noLocationT'), 'md')
-			elseif matches[2] == 'on' then
+			elseif matches[1] == 'lock' then
 				redis:del("settings:location:" .. msg.to.id)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'locationT'), 'md')
 			end
-		elseif matches[1] == "games" then
-			if matches[2] == 'off' then
+		elseif matches[2] == "games" then
+			if matches[1] == 'unlock' then
 				redis:set("settings:games:" .. msg.to.id, true)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'noGamesT'), 'md')
 			elseif matches[2] == 'on' then
 				redis:del("settings:games:" .. msg.to.id)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'gamesT'), 'md')
 			end
-		elseif matches[1] == "forward" then
-			if matches[2] == 'off' then
+		elseif matches[2] == "forward" then
+			if matches[1] == 'unlock' then
 				redis:set("settings:forward:" .. msg.to.id, true)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'noForwardT'), 'md')
-			elseif matches[2] == 'on' then
+			elseif matches[1] == 'lock' then
 				redis:del("settings:forward:" .. msg.to.id)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'forwardT'), 'md')
 			end
-		elseif matches[1] == "spam" then
-			if matches[2] == 'off' then
+		elseif matches[2] == "spam" then
+			if matches[1] == 'unlock' then
 				redis:set("settings:spam:" .. msg.to.id, true)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'noSpamT'), 'md')
-			elseif matches[2] == 'on' then
+			elseif matches[1] == 'lock' then
 				redis:del("settings:spam:" .. msg.to.id)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'spamT'), 'md')
 			end
 		elseif matches[1] == "setspam" and matches[2] then
 			redis:set("settings:setspam:" .. msg.to.id, matches[2])
 			send_msg(msg.to.id, lang_text(msg.to.id, 'setSpam') .. "*" .. matches[2] .. "*.", 'md')
-		elseif matches[1] == "arabic" then
-			if matches[2] == 'off' then
+		elseif matches[2] == "arabic" then
+			if matches[1] == 'unlock' then
 				redis:set("settings:arabic:" .. msg.to.id, true)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'noArabicT'), 'md')
-			elseif matches[2] == 'on' then
+			elseif matches[1] == 'lock' then
 				redis:del("settings:arabic:" .. msg.to.id)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'arabicT'), 'md')
 			end
-		elseif matches[1] == "english" then
-			if matches[2] == 'off' then
+		elseif matches[2] == "english" then
+			if matches[1] == 'unlock' then
 				redis:set("settings:english:" .. msg.to.id, true)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'noEnglishT'), 'md')
-			elseif matches[2] == 'on' then
+			elseif matches[1] == 'lock' then
 				redis:del("settings:english:" .. msg.to.id)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'englishT'), 'md')
 			end
-		elseif matches[1] == "emojis" then
-			if matches[2] == 'off' then
+		elseif matches[2] == "emojis" then
+			if matches[1] == 'unlock' then
 				redis:set("settings:emojis:" .. msg.to.id, true)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'noEmojisT'), 'md')
-			elseif matches[2] == 'on' then
+			elseif matches[1] == 'lock' then
 				redis:del("settings:emojis:" .. msg.to.id)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'emojisT'), 'md')
 			end
-		elseif matches[1] == "flood" then
-			if matches[2] == 'off' then
+		elseif matches[2] == "flood" then
+			if matches[1] == 'unlock' then
 				redis:set("settings:flood:" .. msg.to.id, true)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'noFloodT'), 'md')
-			elseif matches[2] == 'on' then
+			elseif matches[2] == 'lock' then
 				redis:del("settings:flood:" .. msg.to.id)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'floodT'), 'md')
 			end
-		elseif matches[1] == "welcome" then
-			if matches[2] == 'off' then
+		elseif matches[2] == "welcome" then
+			if matches[1] == 'unlock' then
 				redis:set("settings:welcome:" .. msg.to.id, true)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'noWelcomeT'), 'md')
-			elseif matches[2] == 'on' then
+			elseif matches[2] == 'lock' then
 				redis:del("settings:welcome:" .. msg.to.id)
 				send_msg(msg.to.id, lang_text(msg.to.id, 'welcomeT'), 'md')
 			end
