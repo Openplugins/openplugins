@@ -91,7 +91,7 @@ local function run(msg, matches)
 	    	kick_resolve(msg.to.id, matches[2], msg.from.id)
 			send_msg(msg.to.id, lang_text(msg.to.id, 'kickUser'), "md")
 	    end
-	elseif matches[1] == "gban" then
+	elseif matches[1] == "banall" then
 		if not matches[2] and msg.reply_id then
 			if compare_permissions(msg.to.id, msg.from.id, msg.replied.id) then
 				kick_user(msg.to.id, msg.replied.id)
@@ -109,7 +109,7 @@ local function run(msg, matches)
 	    	redisgban_resolve(msg.to.id, matches[2])
 			send_msg(msg.to.id, lang_text(msg.to.id, 'gbanUser'), "md")
 	    end
-	elseif matches[1] == "ungban" then
+	elseif matches[1] == "unbanall" then
 		if not matches[2] and msg.reply_id then
 			if compare_permissions(msg.to.id, msg.from.id, msg.replied.id) then
 				kick_user(msg.to.id, msg.replied.id)
@@ -165,10 +165,10 @@ return {
 		"^[!/#](del)$",
 	    "^[!/#](ban) (.*)$",
 	    "^[!/#](ban)$",
-	    "^[!/#](gban) (.*)$",
-	    "^[!/#](gban)$",
-	    "^[!/#](ungban) (.*)$",
-	    "^[!/#](ungban)$",
+	    "^[!/#](banall) (.*)$",
+	    "^[!/#](banall)$",
+	    "^[!/#](unbanall) (.*)$",
+	    "^[!/#](unbanall)$",
 	    "^[!/#](unban) (.*)$",
 	    "^[!/#](unban)$",
 	    "^[!/#](kick) (.*)$",
